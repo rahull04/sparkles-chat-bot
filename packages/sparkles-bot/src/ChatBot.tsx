@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { MainContainer } from "./components/MainContainer"
+import { MainContainer } from "./components/MainContainer";
 import './index.css';
 import { Header } from "./components/Header";
 import { TypeSection } from "./components/TypeSection";
@@ -21,7 +20,7 @@ export const ChatBot = ({wrapperClassName, visible, headerWrapperClassName, setV
 
     return (
         <MainContainer wrapperClassName={wrapperClassName} >
-            <Header wrapperClassName={headerWrapperClassName} />
+            <Header wrapperClassName={headerWrapperClassName} onClose={setVisible} />
             <h1 className="text-3xl font-bold underline">
                 Hello world!
             </h1>
