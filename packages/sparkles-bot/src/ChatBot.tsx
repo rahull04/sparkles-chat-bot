@@ -1,12 +1,31 @@
+import { useState } from "react";
 import { MainContainer } from "./components/MainContainer"
 import './index.css';
+import { Header } from "./components/Header";
+import { TypeSection } from "./components/TypeSection";
+import { ToggleButton } from "./components/ToggleButton";
 
-export const ChatBot = () => {
+interface ChatBotProps {
+    wrapperClassName?: string;
+    visible: boolean;
+    headerWrapperClassName?: string;
+    mode?: "light" | "dark";
+    setVisible: () => void;
+}
+
+export const ChatBot = ({wrapperClassName, visible, headerWrapperClassName, setVisible}: ChatBotProps) => {
+
+    if(!visible) {
+        return <ToggleButton onClick={setVisible} />
+    }
+
     return (
-        <MainContainer>
+        <MainContainer wrapperClassName={wrapperClassName} >
+            <Header wrapperClassName={headerWrapperClassName} />
             <h1 className="text-3xl font-bold underline">
                 Hello world!
             </h1>
+            <TypeSection />
         </MainContainer>
     )
 }

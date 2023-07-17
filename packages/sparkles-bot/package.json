@@ -12,6 +12,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "react-icons": "^4.10.1",
     "sass": "^1.63.6"
   },
   "peerDependencies": {

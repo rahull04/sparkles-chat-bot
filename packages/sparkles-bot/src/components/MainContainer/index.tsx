@@ -1,5 +1,3 @@
-import { Header } from '../Header';
-import { TypeSection } from '../TypeSection';
 import './index.scss';
 
 interface MainContainerProps {
@@ -8,7 +6,7 @@ interface MainContainerProps {
 }
 const mode = "light";
 
-export const MainContainer = ({ wrapperClassName }: MainContainerProps) => {
+export const MainContainer = ({ wrapperClassName, children }: MainContainerProps) => {
     const modeClassName = (() => {
         if(mode === 'light') return 'light-mode';
         if(mode === 'dark') return 'dark-mode';
@@ -16,11 +14,8 @@ export const MainContainer = ({ wrapperClassName }: MainContainerProps) => {
     })();
 
   return (
-    <div
-        className={`main-container ${modeClassName} ${wrapperClassName}`}
-    >
-      <Header />
-      <TypeSection />
+    <div className={`main-container ${modeClassName} ${wrapperClassName}`}>
+      {children}
     </div>
   );
 };
