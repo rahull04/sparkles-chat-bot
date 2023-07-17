@@ -1,0 +1,12 @@
+{
+  "name": "@tuomo/root",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^7.1.4",
+    "typescript": "3.7.2"
+  }
+}

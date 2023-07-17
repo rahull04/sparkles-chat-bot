@@ -1,0 +1,19 @@
+.main-container {
+    width: 304px;
+    height: 450px;
+    background-color: #181818;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    &.light-mode {
+        background-color: white;
+        border: 1px solid rgb(227, 222, 222);
+    }
+    
+    &.dark-mode {
+        background-color: #181818;
+        color: white;
+    }
+}
