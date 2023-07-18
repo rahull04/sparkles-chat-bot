@@ -1,11 +1,16 @@
 import './index.css';
-interface ChatBotProps {
+import { ChangeEventHandler } from "react";
+export interface ChatBotOptionalProps {
     wrapperClassName?: string;
-    visible: boolean;
     headerWrapperClassName?: string;
     mode?: "light" | "dark";
-    setVisible: () => void;
 }
-export declare const ChatBot: ({ wrapperClassName, visible, headerWrapperClassName, setVisible }: ChatBotProps) => JSX.Element;
+interface ChatBotProps extends ChatBotOptionalProps {
+    visible: boolean;
+    setVisible: () => void;
+    input: string;
+    onChange: ChangeEventHandler<HTMLInputElement>;
+}
+export declare const ChatBot: ({ wrapperClassName, visible, headerWrapperClassName, setVisible, input, onChange }: ChatBotProps) => JSX.Element;
 export {};
 //# sourceMappingURL=ChatBot.d.ts.map

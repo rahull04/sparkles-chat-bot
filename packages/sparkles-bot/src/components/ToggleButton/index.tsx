@@ -20,7 +20,7 @@ export const ToggleButton = ({ wrapperClassName, onClick }: ToggleButtonProps) =
         onClick={onClick}
         className={`toggle-button-container ${modeClassName} ${wrapperClassName}`}
     >
-        <MdSmartToy size={30} />
+        <MdSmartToy size={40} />
     </div>
   );
 };

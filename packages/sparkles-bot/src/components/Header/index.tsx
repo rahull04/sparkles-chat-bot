@@ -1,5 +1,5 @@
 import './index.scss';
-import { MdClose } from "react-icons/md";
+import { MdClose, MdSmartToy } from "react-icons/md";
 
 interface HeaderProps {
     wrapperClassName?: string;
@@ -16,8 +16,15 @@ export const Header = ({ wrapperClassName, onClose }: HeaderProps) => {
   
     return (
       <div className={`header-container ${modeClassName} ${wrapperClassName}`}>
-        Sparkles
-        <MdClose size={25} onClick={onClose} />
+        <div className='name' >
+          <div className='image' >
+            <MdSmartToy size={20} color='black' />
+          </div>
+          <div className='bot-name' >
+            Sparkles
+          </div>
+        </div>
+        <MdClose className='close' size={25} onClick={onClose} />
       </div>
     );
   };

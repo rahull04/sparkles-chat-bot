@@ -1,0 +1,15 @@
+.message-panel {
+    width: 304px;
+    height: 310px;
+    position: absolute;
+    top: 70px;
+
+    &.light-mode {
+        background-color: 'white';
+    }
+    
+    &.dark-mode {
+        background-color: #181818;
+        color: white;
+    }
+}

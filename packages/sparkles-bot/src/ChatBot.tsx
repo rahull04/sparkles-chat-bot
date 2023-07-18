@@ -3,28 +3,34 @@ import './index.css';
 import { Header } from "./components/Header";
 import { TypeSection } from "./components/TypeSection";
 import { ToggleButton } from "./components/ToggleButton";
+import { ChangeEventHandler } from "react";
+import { MessagePanel } from "./components/MessagePanel";
 
-interface ChatBotProps {
+export interface ChatBotOptionalProps {
     wrapperClassName?: string;
-    visible: boolean;
     headerWrapperClassName?: string;
     mode?: "light" | "dark";
-    setVisible: () => void;
 }
 
-export const ChatBot = ({wrapperClassName, visible, headerWrapperClassName, setVisible}: ChatBotProps) => {
+interface ChatBotProps extends ChatBotOptionalProps {
+    visible: boolean;
+    setVisible: () => void;
+    input: string;
+    onChange: ChangeEventHandler<HTMLInputElement>;
+}
+
+export const ChatBot = ({wrapperClassName, visible, headerWrapperClassName, setVisible, input, onChange}: ChatBotProps) => {
 
     if(!visible) {
         return <ToggleButton onClick={setVisible} />
     }
 
     return (
-        <MainContainer wrapperClassName={wrapperClassName} >
+        <MainContainer wrapperClassName={wrapperClassName} visible={visible} >
             <Header wrapperClassName={headerWrapperClassName} onClose={setVisible} />
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
-            <TypeSection />
+            <MessagePanel messages={["Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS.",
+        "Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS."]} />
+            <TypeSection input={input} onChange={onChange}  />
         </MainContainer>
     )
 }

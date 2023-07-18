@@ -9,6 +9,7 @@
     align-items: center;
     color: white;
     justify-content: space-between;
+    align-items: center;
 
     &.light-mode {
         // background-color: #42f5c8 !important;
@@ -19,5 +20,26 @@
     
     &.dark-mode {
         background-color: #181818;
+    }
+
+    .close {
+        cursor: pointer;
+    }
+
+    .name {
+        display: flex;
+        .image {
+            margin-right: 8px;
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bot-name {
+            margin-top: 5px;
+        }
     }
 }

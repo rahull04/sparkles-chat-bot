@@ -1,0 +1,91 @@
+.message-container {
+  clear: both;
+  position: relative;
+  color: #353333;
+  float: right;
+  margin-top: 10px;
+  padding: 4px;
+  p {
+    text-align: left;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+
+    .outer {
+      width: 0;
+      height: 0;
+      border-right: 20px solid #ccc;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .inner {
+      width: 0;
+      height: 0;
+      border-right: 20px solid #ffffff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 2px;
+    }
+  }
+
+  .arrow-right {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+    background-color: #353333;
+
+    .outer {
+      width: 0;
+      height: 0;
+      border-right: 20px solid #ccc;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .inner {
+      width: 0;
+      height: 0;
+      border-right: 20px solid #ffffff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      position: absolute;
+      top: 0;
+      left: 2px;
+    }
+  }
+
+  .message-body {
+    float: left;
+    width: 80%;
+    height: auto;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    padding: 6px 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+}
