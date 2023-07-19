@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './index.scss';
+import { MdSmartToy } from 'react-icons/md';
 
 interface MessageProps { 
   title: string;
@@ -25,6 +26,19 @@ export const Message = ({ title, from = 'user', listLength, index }: MessageProp
 
   return (
     <div className={`message-container ${from}`}>
+      {from === 'user' ? <p className='user' >You</p> : null}
+      {
+        from === 'bot' ? (
+          <div className='name' >
+            <div className='image' >
+              <MdSmartToy size={18} color='black' />
+            </div>
+            <div className='bot-name' >
+              Sparkles
+            </div>
+          </div>
+        ) : null
+      }
       <p>{title}</p>
     </div>
   );

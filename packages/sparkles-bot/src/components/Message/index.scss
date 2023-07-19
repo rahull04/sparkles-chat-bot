@@ -5,14 +5,14 @@
   float: right;
   margin-top: 10px;
   max-width: 80%;
-  min-width: 52%;
+  min-width: 10%;
   height: auto;
   border: 1px solid #ccc;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 20px;
-  margin: 12px 14px 0 8px;
+  margin: 24px 14px 0 8px;
   padding: 6px 8px;
 
   p {
@@ -22,36 +22,12 @@
     padding: 8px 6px;
   }
 
-  .arrow {
-    width: 12px;
-    height: 20px;
-    overflow: hidden;
-    position: relative;
-    float: left;
-    top: 6px;
-    right: -1px;
-
-    .outer {
-      width: 0;
-      height: 0;
-      border-right: 20px solid #ccc;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .inner {
-      width: 0;
-      height: 0;
-      border-right: 20px solid #ffffff;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      position: absolute;
-      top: 0;
-      left: 2px;
-    }
+  .user {
+    position: absolute;
+    top: -23px;
+    right: 0;
+    font-size: 9px;
+    color: #686464;
   }
 
   &.user {
@@ -62,6 +38,30 @@
   &.bot {
     float: left;
     border-top-left-radius: 5px;
+    margin-top: 36px;
+    margin-left: 20px;
+  }
+
+
+
+  .name {
+    display: flex;
+    position: absolute;
+    top: -24px;
+    left: 0;
+    .image {
+      margin-right: 6px;
+      background-color: #ffffff;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2px;
+    }
+    .bot-name {
+      margin-top: 5px;
+      font-size: 10px;
+    }
   }
 }
 
@@ -87,7 +87,8 @@
     animation: dot-pulse 1.5s infinite linear;
     animation-delay: 0.25s;
   }
-  .dot-pulse::before, .dot-pulse::after {
+  .dot-pulse::before,
+  .dot-pulse::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -108,7 +109,7 @@
     animation: dot-pulse-after 1.5s infinite linear;
     animation-delay: 0.5s;
   }
-  
+
   @keyframes dot-pulse-before {
     0% {
       box-shadow: 9984px 0 0 -5px;
@@ -116,7 +117,8 @@
     30% {
       box-shadow: 9984px 0 0 2px;
     }
-    60%, 100% {
+    60%,
+    100% {
       box-shadow: 9984px 0 0 -5px;
     }
   }
@@ -127,7 +129,8 @@
     30% {
       box-shadow: 9999px 0 0 2px;
     }
-    60%, 100% {
+    60%,
+    100% {
       box-shadow: 9999px 0 0 -5px;
     }
   }
@@ -138,7 +141,8 @@
     30% {
       box-shadow: 10014px 0 0 2px;
     }
-    60%, 100% {
+    60%,
+    100% {
       box-shadow: 10014px 0 0 -5px;
     }
   }
