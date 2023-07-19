@@ -30,16 +30,15 @@
         display: flex;
         .image {
             margin-right: 8px;
-            width: 30px;
-            height: 30px;
-            background-color: #ffffff;
             border-radius: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 4px;
         }
         .bot-name {
-            margin-top: 5px;
+            margin-top: 8px;
+            font-size: 14px;
         }
     }
 }

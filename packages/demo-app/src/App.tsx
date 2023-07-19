@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { ChatBot, ChatBotOptionalProps } from "@tuomo/sparkles-bot";
+import Girl from './assets/icons/girl.png';
 
 const Table = ({ chatBotProps, onChange }: any) => (
   <div>
@@ -34,6 +35,8 @@ function App() {
     mode: "light",
     wrapperClassName: "",
     headerWrapperClassName: "",
+    botName: "Sparkles",
+    botImage: Girl,
   });
 
   const onChange = (key: string, value: string) => {

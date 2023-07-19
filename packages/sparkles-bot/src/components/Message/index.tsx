@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import './index.scss';
-import { MdSmartToy } from 'react-icons/md';
 
 interface MessageProps { 
   title: string;
   from?: 'user' | 'bot'; 
   listLength: number;
   index: number;
+  botName: string;
+  botImage: string;
 };
 
-export const Message = ({ title, from = 'user', listLength, index }: MessageProps) => {
+export const Message = ({ title, from = 'user', listLength, index, botName, botImage }: MessageProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,10 +32,10 @@ export const Message = ({ title, from = 'user', listLength, index }: MessageProp
         from === 'bot' ? (
           <div className='name' >
             <div className='image' >
-              <MdSmartToy size={18} color='black' />
+              <img src={botImage} height={18} width={18} color='black' />
             </div>
             <div className='bot-name' >
-              Sparkles
+              {botName}
             </div>
           </div>
         ) : null

@@ -1,14 +1,17 @@
 import { useEffect, useRef } from 'react';
 import { Message } from '../Message';
 import './index.scss';
+import type { MessageType } from '../../ChatBot';
 
 interface MessagePanelProps {
-    messages: string[];
+    messages: MessageType[];
     wrapperClassName?: string;
+    botName: string;
+    botImage: string;
 }
 const mode = "light";
 
-export const MessagePanel = ({ messages, wrapperClassName }: MessagePanelProps) => {
+export const MessagePanel = ({ messages, wrapperClassName, botName, botImage }: MessagePanelProps) => {
   const panelRef = useRef<HTMLInputElement | null>(null);
   const modeClassName = (() => {
     if(mode === 'light') return 'light-mode';
@@ -25,7 +28,7 @@ export const MessagePanel = ({ messages, wrapperClassName }: MessagePanelProps) 
   return (
     <div ref={panelRef} className={`message-panel ${modeClassName} ${wrapperClassName}`}>
       {
-        messages?.map((message, i) => <Message key={`message-${i}`} title={message} listLength={messages.length} index={i} />)
+        messages?.map(({message, from}, i) => <Message key={`message-${i}`} title={message} from={from} botName={botName} botImage={botImage} listLength={messages.length} index={i} />)
       }
     </div>
   );
