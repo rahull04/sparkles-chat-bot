@@ -1,3 +1,4 @@
+import './index.scss';
 export var Message = function (_a) {
     var title = _a.title;
     return (<div className="message-container">

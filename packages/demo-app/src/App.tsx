@@ -5,19 +5,21 @@ import { ChatBot, ChatBotOptionalProps } from "@tuomo/sparkles-bot";
 const Table = ({ chatBotProps, onChange }: any) => (
   <div>
     <table>
-      <thead>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Modify</th>
-      </thead>
       <tbody>
-        {Object.entries(chatBotProps)?.map(([key, value]) => (
-          <tr>
-            <th>{key}</th>
-            <th>{typeof value}</th>
-            <th>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Modify</th>
+        </tr>
+      </tbody>
+      <tbody>
+        {Object.entries(chatBotProps)?.map(([key, value], i) => (
+          <tr key={`tr-${i}`} >
+            <td>{key}</td>
+            <td>{typeof value}</td>
+            <td>
               <input onChange={onChange} />
-            </th>
+            </td>
           </tr>
         ))}
       </tbody>

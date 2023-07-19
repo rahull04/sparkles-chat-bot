@@ -1,3 +1,4 @@
+import './index.scss';
 export declare const Message: ({ title }: {
     title: string;
 }) => JSX.Element;

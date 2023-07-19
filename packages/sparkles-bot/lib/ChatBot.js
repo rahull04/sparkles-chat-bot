@@ -11,7 +11,8 @@ export var ChatBot = function (_a) {
     }
     return (<MainContainer wrapperClassName={wrapperClassName} visible={visible}>
             <Header wrapperClassName={headerWrapperClassName} onClose={setVisible}/>
-            <MessagePanel messages={["Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS."]}/>
+            <MessagePanel messages={["Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS.",
+        "Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS."]}/>
             <TypeSection input={input} onChange={onChange}/>
         </MainContainer>);
 };

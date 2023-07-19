@@ -3,7 +3,7 @@ import './index.css';
 import { Header } from "./components/Header";
 import { TypeSection } from "./components/TypeSection";
 import { ToggleButton } from "./components/ToggleButton";
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { MessagePanel } from "./components/MessagePanel";
 
 export interface ChatBotOptionalProps {
@@ -20,6 +20,7 @@ interface ChatBotProps extends ChatBotOptionalProps {
 }
 
 export const ChatBot = ({wrapperClassName, visible, headerWrapperClassName, setVisible, input, onChange}: ChatBotProps) => {
+    const [messageList, setMessageList] = useState<string[]>([]);
 
     if(!visible) {
         return <ToggleButton onClick={setVisible} />
@@ -28,9 +29,8 @@ export const ChatBot = ({wrapperClassName, visible, headerWrapperClassName, setV
     return (
         <MainContainer wrapperClassName={wrapperClassName} visible={visible} >
             <Header wrapperClassName={headerWrapperClassName} onClose={setVisible} />
-            <MessagePanel messages={["Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS.",
-        "Add the variable font stylesheet request to your head tag and the current variable axes configuration to icons using CSS."]} />
-            <TypeSection input={input} onChange={onChange}  />
+            <MessagePanel messages={messageList} />
+            <TypeSection input={input} onChange={onChange} setMessageList={setMessageList} />
         </MainContainer>
     )
 }
