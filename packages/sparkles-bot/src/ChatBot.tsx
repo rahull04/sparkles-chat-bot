@@ -23,8 +23,8 @@ interface ChatBotProps extends ChatBotOptionalProps {
 }
 
 export interface MessageType {
-    message: string;
-    from: 'user' | 'bot';
+  message: string;
+  from: 'user' | 'bot';
 }
 
 export const ChatBot = ({
@@ -36,6 +36,7 @@ export const ChatBot = ({
   onChange,
   botName = 'Sparkles',
   botImage = Boy,
+  mode = "light",
 }: ChatBotProps) => {
   const [messageList, setMessageList] = useState<MessageType[]>([{
     message: `Hey ya, I'am ${botName}. How may I assist you today ?`,
@@ -47,10 +48,11 @@ export const ChatBot = ({
   }
 
   return (
-    <MainContainer wrapperClassName={wrapperClassName} visible={visible}>
-      <Header botName={botName} botImage={botImage} wrapperClassName={headerWrapperClassName} onClose={setVisible} />
-      <MessagePanel botName={botName} botImage={botImage} messages={messageList} />
+    <MainContainer mode={mode} wrapperClassName={wrapperClassName} visible={visible}>
+      <Header mode={mode} botName={botName} botImage={botImage} wrapperClassName={headerWrapperClassName} onClose={setVisible} />
+      <MessagePanel mode={mode} botName={botName} botImage={botImage} messages={messageList} />
       <TypeSection
+        mode={mode}
         input={input}
         onChange={onChange}
         setMessageList={setMessageList}

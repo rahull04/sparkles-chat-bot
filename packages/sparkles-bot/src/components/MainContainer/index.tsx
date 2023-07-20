@@ -4,10 +4,10 @@ interface MainContainerProps {
     children?: React.ReactNode;
     wrapperClassName?: string;
     visible: boolean;
+    mode: string;
 }
-const mode = "light";
 
-export const MainContainer = ({ wrapperClassName, children, visible }: MainContainerProps) => {
+export const MainContainer = ({ wrapperClassName, children, visible, mode }: MainContainerProps) => {
   const fadeClassName = !visible ? 'fadeOut' : 'fadeIn';
   const modeClassName = (() => {
     if(mode === 'light') return 'light-mode';

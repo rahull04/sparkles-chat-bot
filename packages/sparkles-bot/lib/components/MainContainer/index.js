@@ -1,16 +1,15 @@
 import './index.scss';
-var mode = "light";
-export var MainContainer = function (_a) {
-    var wrapperClassName = _a.wrapperClassName, children = _a.children, visible = _a.visible;
-    var fadeClassName = !visible ? 'fadeOut' : 'fadeIn';
-    var modeClassName = (function () {
+const mode = "light";
+export const MainContainer = ({ wrapperClassName, children, visible }) => {
+    const fadeClassName = !visible ? 'fadeOut' : 'fadeIn';
+    const modeClassName = (() => {
         if (mode === 'light')
             return 'light-mode';
         if (mode === 'dark')
             return 'dark-mode';
         return 'light-mode';
     })();
-    return (<div className={"main-container animated " + fadeClassName + " " + modeClassName + " " + wrapperClassName}>
+    return (<div className={`main-container animated ${fadeClassName} ${modeClassName} ${wrapperClassName}`}>
       {children}
     </div>);
 };

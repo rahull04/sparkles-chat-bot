@@ -1,16 +1,15 @@
 import './index.scss';
 import { MdSmartToy } from "react-icons/md";
-var mode = "light";
-export var ToggleButton = function (_a) {
-    var wrapperClassName = _a.wrapperClassName, onClick = _a.onClick;
-    var modeClassName = (function () {
+const mode = "light";
+export const ToggleButton = ({ wrapperClassName, onClick }) => {
+    const modeClassName = (() => {
         if (mode === 'light')
             return 'light-mode';
         if (mode === 'dark')
             return 'dark-mode';
         return 'light-mode';
     })();
-    return (<div onClick={onClick} className={"toggle-button-container " + modeClassName + " " + wrapperClassName}>
+    return (<div onClick={onClick} className={`toggle-button-container ${modeClassName} ${wrapperClassName}`}>
         <MdSmartToy size={40}/>
     </div>);
 };

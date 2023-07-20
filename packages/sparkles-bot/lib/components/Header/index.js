@@ -1,22 +1,21 @@
 import './index.scss';
-import { MdClose, MdSmartToy } from "react-icons/md";
-var mode = "light";
-export var Header = function (_a) {
-    var wrapperClassName = _a.wrapperClassName, onClose = _a.onClose;
-    var modeClassName = (function () {
+import { MdClose } from "react-icons/md";
+const mode = "light";
+export const Header = ({ wrapperClassName, onClose, botName, botImage }) => {
+    const modeClassName = (() => {
         if (mode === "light")
             return "light-mode";
         if (mode === "dark")
             return "dark-mode";
         return "light";
     })();
-    return (<div className={"header-container " + modeClassName + " " + wrapperClassName}>
+    return (<div className={`header-container ${modeClassName} ${wrapperClassName}`}>
         <div className='name'>
           <div className='image'>
-            <MdSmartToy size={20} color='black'/>
+            <img src={botImage} height={25} width={25} color='black'/>
           </div>
           <div className='bot-name'>
-            Sparkles
+            {botName}
           </div>
         </div>
         <MdClose className='close' size={25} onClick={onClose}/>

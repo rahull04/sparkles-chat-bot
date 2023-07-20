@@ -8,10 +8,16 @@ interface MessageProps {
   index: number;
   botName: string;
   botImage: string;
+  mode: string;
 };
 
-export const Message = ({ title, from = 'user', listLength, index, botName, botImage }: MessageProps) => {
+export const Message = ({ title, from = 'user', listLength, index, botName, botImage, mode }: MessageProps) => {
   const [isLoading, setIsLoading] = useState(true);
+  const modeClassName = (() => {
+    if(mode === 'light') return 'light-mode';
+    if(mode === 'dark') return 'dark-mode';
+    return 'light-mode';
+  })();
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 1000);
@@ -26,15 +32,15 @@ export const Message = ({ title, from = 'user', listLength, index, botName, botI
   }
 
   return (
-    <div className={`message-container ${from}`}>
-      {from === 'user' ? <p className='user' >You</p> : null}
+    <div className={`message-container ${from} ${modeClassName}`}>
+      {from === 'user' ? <p className={`user ${modeClassName}`} >You</p> : null}
       {
         from === 'bot' ? (
           <div className='name' >
             <div className='image' >
               <img src={botImage} height={18} width={18} color='black' />
             </div>
-            <div className='bot-name' >
+            <div className={`bot-name`} >
               {botName}
             </div>
           </div>

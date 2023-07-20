@@ -32,7 +32,7 @@ function App() {
   const [visible, setVisible] = useState(false);
   const [input, setInput] = useState("What is your name ?");
   const [chatBotProps, setChatBotProps] = useState({
-    mode: "light",
+    mode: "dark",
     wrapperClassName: "",
     headerWrapperClassName: "",
     botName: "Sparkles",

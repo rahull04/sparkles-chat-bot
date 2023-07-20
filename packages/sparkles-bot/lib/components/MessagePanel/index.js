@@ -1,17 +1,28 @@
+import { useEffect, useRef } from 'react';
 import { Message } from '../Message';
 import './index.scss';
-var mode = "light";
-export var MessagePanel = function (_a) {
-    var messages = _a.messages, wrapperClassName = _a.wrapperClassName;
-    var modeClassName = (function () {
+{
+    MessageType;
+}
+from;
+'../../ChatBot';
+const mode = "light";
+export const MessagePanel = ({ messages, wrapperClassName, botName, botImage }) => {
+    const panelRef = useRef(null);
+    const modeClassName = (() => {
         if (mode === 'light')
             return 'light-mode';
         if (mode === 'dark')
             return 'dark-mode';
         return 'light-mode';
     })();
-    return (<div className={"message-panel " + modeClassName + " " + wrapperClassName}>
-      {messages ? .map(function (message) { return <Message title={message}/>; })
+    useEffect(() => {
+        if (panelRef ? .current : ) {
+            panelRef.current.scrollTop = panelRef.current.scrollHeight;
+        }
+    }, [messages]);
+    return (<div ref={panelRef} className={`message-panel ${modeClassName} ${wrapperClassName}`}>
+      {messages ? .map(({ message, from }, i) => <Message key={`message-${i}`} title={message} from={from} botName={botName} botImage={botImage} listLength={messages.length} index={i}/>)
         :
     }
     </div>);

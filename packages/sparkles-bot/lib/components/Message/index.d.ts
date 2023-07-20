@@ -1,5 +1,12 @@
 import './index.scss';
-export declare const Message: ({ title }: {
+interface MessageProps {
     title: string;
-}) => JSX.Element;
+    from?: 'user' | 'bot';
+    listLength: number;
+    index: number;
+    botName: string;
+    botImage: string;
+}
+export declare const Message: ({ title, from, listLength, index, botName, botImage }: MessageProps) => JSX.Element;
+export {};
 //# sourceMappingURL=index.d.ts.map

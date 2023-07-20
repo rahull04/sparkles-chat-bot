@@ -8,8 +8,8 @@ interface HeaderProps {
   input: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   setMessageList: React.Dispatch<React.SetStateAction<MessageType[]>>;
+  mode: string;
 }
-const mode = "light";
 
 const DEFAULT_MESSAGE = "Ask a question...";
 
@@ -18,6 +18,7 @@ export const TypeSection = ({
   input,
   onChange,
   setMessageList,
+  mode,
 }: HeaderProps) => {
   const modeClassName = (() => {
     if (mode === "light") return "light-mode";
@@ -51,6 +52,7 @@ export const TypeSection = ({
       {input ? (
         <MdSend
           className="send-btn"
+          color={'black'}
           onClick={() => {
             setMessageList((curr) => [
               ...curr,

@@ -15,6 +15,15 @@
   margin: 24px 14px 0 8px;
   padding: 6px 8px;
 
+  &.light-mode {
+    background-color: 'white';
+  }
+
+  &.dark-mode {
+      background-color: #181818;
+      color: white;
+  }
+
   p {
     text-align: left;
     margin: 0;
@@ -29,6 +38,10 @@
     right: 0;
     font-size: 9px;
     color: #686464;
+
+    &.dark-mode {
+        color: white;
+    }
   }
 
   &.user {

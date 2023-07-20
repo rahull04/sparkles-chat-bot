@@ -7,10 +7,10 @@ interface HeaderProps {
     onClose?: () => void;
     botName: string;
     botImage: string;
+    mode: string;
 }
-const mode = "light";
 
-export const Header = ({ wrapperClassName, onClose, botName, botImage }: HeaderProps) => {
+export const Header = ({ wrapperClassName, onClose, botName, botImage, mode }: HeaderProps) => {
     const modeClassName = (() => {
       if (mode === "light") return "light-mode";
       if (mode === "dark") return "dark-mode";
