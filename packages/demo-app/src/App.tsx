@@ -2,16 +2,23 @@ import { useState } from "react";
 import "./App.css";
 import { ChatBot, ChatBotOptionalProps } from "@tuomo/sparkles-bot";
 import Girl from './assets/icons/girl.png';
+import Boy from './assets/icons/boy.png';
+
+interface PossibleValues {
+  name: string;
+  value: string;
+}
 
 interface ChatBotProps {
   prop: string;
   value: string;
-  possibleValues?: string[];
+  possibleValues?: PossibleValues[];
+  modifyInputType?: 'string' | 'select';
 }
 
 const Table = ({ chatBotProps, onChange }: {chatBotProps: ChatBotProps[], onChange: any}) => (
-  <div>
-    <table>
+  <div style={{width: 500}}>
+    <table style={{width: 500}} >
       <tbody>
         <tr>
           <th>Title</th>
@@ -26,10 +33,18 @@ const Table = ({ chatBotProps, onChange }: {chatBotProps: ChatBotProps[], onChan
           <tr key={`tr-${i}`} >
             <td>{prop.prop}</td>
             <td>{typeof prop.value}</td>
-            <td>{prop.possibleValues?.join(',')}</td>
+            <td>{prop.possibleValues?.map(p => p.name).join(', ')}</td>
             <td>{prop.value}</td>
             <td>
-              <input onChange={(e) => onChange(prop.prop, e.target.value)} />
+              {
+                prop.modifyInputType === 'select' ?
+                  <select style={{width: '100%'}} value={prop.value} onChange={(e) => onChange(prop.prop, e.target.value)}>
+                    {
+                      prop.possibleValues?.map(p => <option value={p.value}>{p.name}</option>)
+                    }
+                  </select>
+                  : <input value={prop.value} onChange={(e) => onChange(prop.prop, e.target.value)} />
+              }
             </td>
           </tr>
         ))}
@@ -40,12 +55,22 @@ const Table = ({ chatBotProps, onChange }: {chatBotProps: ChatBotProps[], onChan
 
 function App() {
   const [visible, setVisible] = useState(false);
-  const [input, setInput] = useState("What is your name ?");
+  const [input, setInput] = useState("");
   const [chatBotProps, setChatBotProps] = useState<ChatBotProps[]>([
     {
       prop: "mode",
       value: "light",
-      possibleValues: ["light", "dark"]
+      possibleValues: [   
+        {
+          name: "Light",
+          value: "light",
+        },
+        {
+          name: "Dark",
+          value: "dark",
+        },
+      ],
+      modifyInputType: 'select',
     }, 
     {
       prop: "botName",
@@ -54,6 +79,17 @@ function App() {
     {
       prop: "botImage",
       value: Girl,
+      possibleValues: [
+        {
+          name: 'Girl',
+          value: Girl,
+        },
+        {
+          name: 'Boy',
+          value: Boy,
+        },
+      ],
+      modifyInputType: 'select'
     },
     {
       prop: "wrapperClassName",
