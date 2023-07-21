@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { ChatBot, ChatBotOptionalProps } from "@tuomo/sparkles-bot";
+import { ChatBot, ChatBotOptionalProps } from "sparkles-bot";
 import Girl from './assets/icons/girl.png';
 import Boy from './assets/icons/boy.png';
 

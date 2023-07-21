@@ -1,5 +1,5 @@
 {
-  "name": "@tuomo/root",
+  "name": "root",
   "private": true,
   "workspaces": [
     "packages/**"
