@@ -12,13 +12,19 @@
     input {
         width: 100%;
         height: 100%;
-        border: 1px solid rgb(204, 199, 199);;
+        border: 1px solid rgb(204, 199, 199);
         color: #353333;
         padding: 8px 12px;
         padding-right: 30px;
         border-radius: 15px;
         &:focus-visible {
             outline: #42f5c8 !important;
+        }
+    
+        &.dark-mode {
+            background-color: #181818;
+            color: rgb(230, 225, 225);
+            border: 1px solid #8b8888;
         }
     }
 

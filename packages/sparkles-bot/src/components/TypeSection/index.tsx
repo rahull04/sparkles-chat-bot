@@ -33,6 +33,7 @@ export const TypeSection = ({
       <input
         type="text"
         value={input}
+        className={modeClassName}
         onChange={onChange}
         placeholder={DEFAULT_MESSAGE}
         onKeyUp={(e) => {
@@ -52,7 +53,7 @@ export const TypeSection = ({
       {input ? (
         <MdSend
           className="send-btn"
-          color={'black'}
+          color={mode === 'light' ? 'black' : 'white'}
           onClick={() => {
             setMessageList((curr) => [
               ...curr,
