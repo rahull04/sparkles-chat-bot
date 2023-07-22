@@ -1,14 +1,15 @@
 import './index.scss';
-import { MdSmartToy } from "react-icons/md";
+import { MdSend, MdMessage } from "react-icons/md";
 
 interface ToggleButtonProps {
     children?: React.ReactNode;
     wrapperClassName?: string;
     onClick: () => void;
+    visible: boolean;
 }
 const mode = "light";
 
-export const ToggleButton = ({ wrapperClassName, onClick }: ToggleButtonProps) => {
+export const ToggleButton = ({ wrapperClassName, onClick, visible }: ToggleButtonProps) => {
     const modeClassName = (() => {
         if(mode === 'light') return 'light-mode';
         if(mode === 'dark') return 'dark-mode';
@@ -18,9 +19,11 @@ export const ToggleButton = ({ wrapperClassName, onClick }: ToggleButtonProps) =
   return (
     <div
         onClick={onClick}
-        className={`toggle-button-container ${modeClassName} ${wrapperClassName}`}
+        className={`toggle-button-container ${modeClassName} ${'visible-' + visible} ${wrapperClassName}`}
     >
-        <MdSmartToy size={40} />
+        {
+            visible ? <MdSend size={25} /> : <MdMessage size={25} />
+        }
     </div>
   );
 };

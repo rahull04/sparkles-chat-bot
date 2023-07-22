@@ -9,6 +9,7 @@ interface MessagePanelProps {
     botName: string;
     botImage: string;
     mode: string;
+    visible: boolean;
 }
 
 export const MessagePanel = ({ messages, wrapperClassName, botName, botImage, mode }: MessagePanelProps) => {

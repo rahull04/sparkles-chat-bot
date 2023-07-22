@@ -1,6 +1,6 @@
 .toggle-button-container {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     padding: 12px;
     display: flex;
@@ -8,13 +8,14 @@
     justify-content: center;
     color: white;
     position: fixed;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 3.9rem;
+    right: 3.3rem;
     cursor: pointer;
+    z-index: 11112;
+    border: none;
+    outline: none;
 
     &.light-mode {
-        // background-color: #42f5c8 !important;
-        border: 1px solid rgb(227, 222, 222);
         background: rgb(2,0,36);
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(36,9,121,1) 0%, rgba(169,0,255,1) 100%);
     }

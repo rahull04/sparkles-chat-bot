@@ -3,7 +3,7 @@ import "./index.css";
 import { Header } from "./components/Header";
 import { TypeSection } from "./components/TypeSection";
 import { ToggleButton } from "./components/ToggleButton";
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useState } from "react";
 import { MessagePanel } from "./components/MessagePanel";
 import Boy from './assets/icons/boy.png';
 
@@ -43,20 +43,35 @@ export const ChatBot = ({
     from: 'bot'
   }]);
 
-  if (!visible) {
-    return <ToggleButton onClick={setVisible} />;
-  }
-
   return (
-    <MainContainer mode={mode} wrapperClassName={wrapperClassName} visible={visible}>
-      <Header mode={mode} botName={botName} botImage={botImage} wrapperClassName={headerWrapperClassName} onClose={setVisible} />
-      <MessagePanel mode={mode} botName={botName} botImage={botImage} messages={messageList} />
-      <TypeSection
-        mode={mode}
-        input={input}
-        onChange={onChange}
-        setMessageList={setMessageList}
-      />
-    </MainContainer>
+    <>
+      <ToggleButton visible={visible} onClick={() => {
+        if(visible) {
+          if(!input) return;
+          setMessageList((curr) => [
+            ...curr,
+            { from: "user", message: input },
+          ]);
+          onChange({
+            target: {
+              value: "",
+            },
+          } as ChangeEvent<HTMLInputElement>);
+        } else {
+          setVisible();
+        }
+      }} />
+      {!visible && <p style={{position: 'absolute', right: '7.5rem', bottom: '4rem', zIndex: 11111}} >Say Hi to {botName}</p>}
+      <MainContainer mode={mode} wrapperClassName={wrapperClassName} visible={visible}>
+        <Header visible={visible} mode={mode} botName={botName} botImage={botImage} wrapperClassName={headerWrapperClassName} onClose={setVisible} />
+        <MessagePanel visible={visible} mode={mode} botName={botName} botImage={botImage} messages={messageList} />
+        {visible && <TypeSection
+          mode={mode}
+          input={input}
+          onChange={onChange}
+          setMessageList={setMessageList}
+        />}
+      </MainContainer>
+    </>
   );
 };

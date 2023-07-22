@@ -50,24 +50,6 @@ export const TypeSection = ({
             } as ChangeEvent<HTMLInputElement>);
         }}
       />
-      {input ? (
-        <MdSend
-          className="send-btn"
-          color={mode === 'light' ? 'black' : 'white'}
-          onClick={() => {
-            setMessageList((curr) => [
-              ...curr,
-              { from: "user", message: input },
-            ]);
-            onChange({
-              target: {
-                value: "",
-              },
-            } as ChangeEvent<HTMLInputElement>);
-          }}
-          size={20}
-        />
-      ) : null}
     </div>
   );
 };
