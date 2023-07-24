@@ -1,13 +1,11 @@
 import { ChangeEvent, ChangeEventHandler } from "react";
 import "./index.scss";
-import { MdSend } from "react-icons/md";
-import { MessageType } from "../../ChatBot";
-
+import { MessageType } from "../../hooks/useMessaging";
 interface HeaderProps {
   wrapperClassName?: string;
   input: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
-  setMessageList: React.Dispatch<React.SetStateAction<MessageType[]>>;
+  sendMessage: () => void;
   mode: string;
 }
 
@@ -17,7 +15,7 @@ export const TypeSection = ({
   wrapperClassName,
   input,
   onChange,
-  setMessageList,
+  sendMessage,
   mode,
 }: HeaderProps) => {
   const modeClassName = (() => {
@@ -37,17 +35,7 @@ export const TypeSection = ({
         onChange={onChange}
         placeholder={DEFAULT_MESSAGE}
         onKeyUp={(e) => {
-          e.code === "Enter" &&
-            setMessageList((curr) => [
-              ...curr,
-              { from: "user", message: input },
-            ]);
-          e.code === "Enter" &&
-            onChange({
-              target: {
-                value: "",
-              },
-            } as ChangeEvent<HTMLInputElement>);
+          e.code === "Enter" && sendMessage();
         }}
       />
     </div>

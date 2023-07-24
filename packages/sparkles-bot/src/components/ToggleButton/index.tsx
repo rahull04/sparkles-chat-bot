@@ -6,10 +6,10 @@ interface ToggleButtonProps {
     wrapperClassName?: string;
     onClick: () => void;
     visible: boolean;
+    mode: string;
 }
-const mode = "light";
 
-export const ToggleButton = ({ wrapperClassName, onClick, visible }: ToggleButtonProps) => {
+export const ToggleButton = ({ wrapperClassName, onClick, visible, mode }: ToggleButtonProps) => {
     const modeClassName = (() => {
         if(mode === 'light') return 'light-mode';
         if(mode === 'dark') return 'dark-mode';

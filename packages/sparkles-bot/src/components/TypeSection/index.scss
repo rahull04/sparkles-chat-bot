@@ -24,9 +24,10 @@
         }
     
         &.dark-mode {
-            background-color: #181818;
+            background-color: #262424;
             color: rgb(230, 225, 225);
             border: none;
+            border-top: 1px solid rgb(146, 143, 143);
         }
     }
 
