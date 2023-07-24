@@ -1,6 +1,6 @@
 {
   "name": "sparkles-bot",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "private": false,
   "files": [
     "src",
@@ -9,7 +9,8 @@
   "main": "src",
   "types": "lib/types.d.ts",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "build": "react-scripts build"
   },
   "dependencies": {
     "react-icons": "^4.10.1",
