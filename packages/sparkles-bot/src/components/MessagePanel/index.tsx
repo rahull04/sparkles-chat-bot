@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Message } from '../Message';
 import './index.scss';
-import type { MessageType } from '../../ChatBot';
+import type { MessageType } from '../../hooks/useMessaging';
 
 interface MessagePanelProps {
     messages: MessageType[];
@@ -22,8 +22,13 @@ export const MessagePanel = ({ messages, wrapperClassName, botName, botImage, mo
 
   useEffect(() => {
     if(panelRef?.current) {
-      panelRef.current.scrollTop = panelRef.current.scrollHeight;
+      panelRef.current.scrollTop = panelRef.current.scrollHeight
     }
+    setTimeout(() => {
+      if(panelRef?.current) {
+        panelRef.current.scrollTop = panelRef.current.scrollHeight
+      }
+    }, 1010);
   }, [messages])
 
   return (
