@@ -5,13 +5,13 @@ export interface MessageType {
     from: 'user' | 'bot';
 }
 
-const API_BASE_URL = "https://jsonplaceholder.typicode.com";
+const API_BASE_URL = "http://pyreactors-api.hackathon.local:5000/";
 
 const HEADERS = {
     "Content-type": "application/json; charset=UTF-8"
 };
 
-export const useMessaging = (botName: string, onChange: ChangeEventHandler<HTMLInputElement>, input: string) => {
+export const useMessaging = (botName: string, onChange: ChangeEventHandler<HTMLInputElement>, input: string, apiKey: string, apiSecret: string) => {
     const [messageList, setMessageList] = useState<MessageType[]>([{
         message: `Hey ya, I'am ${botName}. How may I assist you today ?`,
         from: 'bot'
@@ -19,13 +19,13 @@ export const useMessaging = (botName: string, onChange: ChangeEventHandler<HTMLI
 
     const onSendMessage = async () => {
         const body = JSON.stringify({
-            message: input,
+            userinput: input,
         });
-        const response = await fetch(`${API_BASE_URL}/posts`, { method: "POST", body, headers: HEADERS });
+        const response = await fetch(`${API_BASE_URL}/input_data/`, { method: "POST", body, headers: HEADERS });
         const data = await response.json();
         setMessageList((curr) => [
             ...curr,
-            { from: 'bot', message: data.message },
+            { from: 'bot', message: data.response },
         ]);
     }
       

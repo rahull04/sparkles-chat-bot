@@ -21,6 +21,8 @@ interface ChatBotProps extends ChatBotOptionalProps {
   setVisible: () => void;
   input: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  apiKey: string;
+  apiSecret: string;
 }
 
 export const ChatBot = ({
@@ -30,11 +32,13 @@ export const ChatBot = ({
   setVisible,
   input,
   onChange,
-  botName = 'Sparkles',
+  botName = 'PyroBot',
   botImage = Boy,
   mode = "light",
+  apiKey,
+  apiSecret,
 }: ChatBotProps) => {
-  const { messageList, sendMessage } = useMessaging(botName, onChange, input);
+  const { messageList, sendMessage } = useMessaging(botName, onChange, input, apiKey, apiSecret);
 
   return (
     <>

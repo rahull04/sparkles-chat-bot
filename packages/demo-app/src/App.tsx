@@ -3,6 +3,7 @@ import "./App.css";
 import { ChatBot, ChatBotOptionalProps } from "sparkles-bot";
 import Girl from './assets/icons/girl.png';
 import Boy from './assets/icons/boy.png';
+import { Home } from "./Home";
 
 interface PossibleValues {
   name: string;
@@ -40,7 +41,7 @@ const Table = ({ chatBotProps, onChange }: {chatBotProps: ChatBotProps[], onChan
                 prop.modifyInputType === 'select' ?
                   <select style={{width: '100%'}} value={prop.value} onChange={(e) => onChange(prop.prop, e.target.value)}>
                     {
-                      prop.possibleValues?.map(p => <option value={p.value}>{p.name}</option>)
+                      prop.possibleValues?.map((p, i) => <option key={`option-${i}`} value={p.value}>{p.name}</option>)
                     }
                   </select>
                   : <input value={prop.value} onChange={(e) => onChange(prop.prop, e.target.value)} />
@@ -74,7 +75,7 @@ function App() {
     }, 
     {
       prop: "botName",
-      value: "Sparkles",
+      value: "Pyro",
     },
     {
       prop: "botImage",
@@ -119,7 +120,7 @@ function App() {
 
   return (
     <div className="App">
-      <Table chatBotProps={chatBotProps} onChange={onChange} />
+      <Home />
       <ChatBot
         visible={visible}
         setVisible={() => setVisible(!visible)}

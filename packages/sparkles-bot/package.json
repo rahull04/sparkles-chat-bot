@@ -9,7 +9,7 @@
   "main": "src",
   "types": "lib/types.d.ts",
   "scripts": {
-    "tsc": "tsc",
+    "prepare": "tsc",
     "build": "react-scripts build"
   },
   "dependencies": {
