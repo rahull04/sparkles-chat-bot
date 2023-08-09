@@ -2,7 +2,7 @@ const path = require("path");
 const { getLoader, loaderByName } = require("@craco/craco");
 
 const packages = [];
-packages.push(path.join(__dirname, "../sparkles-bot"));
+packages.push(path.join(__dirname, "../pyro-bot"));
 
 module.exports = {
   webpack: {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { ChatBot, ChatBotOptionalProps } from "sparkles-bot";
+import { ChatBot, ChatBotOptionalProps } from "pyro-bot";
 import Girl from './assets/icons/girl.png';
 import Boy from './assets/icons/boy.png';
 import { Home } from "./Home";
@@ -79,7 +79,7 @@ function App() {
     },
     {
       prop: "botImage",
-      value: Girl,
+      value: Boy,
       possibleValues: [
         {
           name: 'Girl',

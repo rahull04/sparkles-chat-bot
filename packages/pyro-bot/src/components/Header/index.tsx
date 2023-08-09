@@ -22,7 +22,7 @@ export const Header = ({ wrapperClassName, onClose, botName, botImage, mode, vis
       <div className={`header-container animated ${fadeClassName} ${modeClassName} ${wrapperClassName}`}>
         <div className='name' >
           <div className='image' >
-            <img src={botImage} height={25} width={25} color='black' />
+            <img src={botImage} height={25} width={25} color='black' style={{borderRadius: 20}} />
           </div>
           <div className='bot-name' >
             {botName}

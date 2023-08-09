@@ -38,7 +38,7 @@ export const Message = ({ title, from = 'user', listLength, index, botName, botI
         from === 'bot' ? (
           <div className='name' >
             <div className='image' >
-              <img src={botImage} height={18} width={18} color='black' />
+              <img src={botImage} height={18} width={18} color='black' style={{borderRadius: 20}} />
             </div>
             <div className={`bot-name`} >
               {botName}
